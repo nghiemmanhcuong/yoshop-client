@@ -1,0 +1,134 @@
+.footer {
+    background-color: #ffffff;
+    padding: 40px 0 30px;
+
+    @include  desktop {
+        text-align: center;
+        padding: 10px 0 30px;
+    }
+
+    &_block > div,
+    &_container > div {
+        gap: 10px !important;
+    }
+
+    &_title {
+        font-size: 18px;
+        font-weight: bold;
+        padding: 12px 0;
+        margin-bottom: 10px;
+
+        @include desktop {
+            font-size: 24px;
+        }
+
+        @include mobile {
+            font-size: 18px;
+            padding: 5px 0;
+            margin-bottom: 0;
+        }
+    }
+
+    &_desc {
+        font-size: 14px;
+
+        @include mobile {
+            font-size: 12px;
+        }
+    }
+
+    &_shop {
+        li > span {
+            font-weight: bold;  
+            padding-right: 3px;
+        }
+    }
+
+    &_links {
+        ul {
+            list-style:disc;
+
+            @include desktop {
+                list-style: none;
+            }
+
+            li {
+                margin-bottom: 5px;
+            }
+        }
+    }
+
+    &_contact {
+        @include flex(center,flex-start);
+
+        @include  desktop {
+            justify-content: center;
+        }
+
+        @include mobile {
+            &_icon > svg {
+                width: 28px;
+                height: 28px;
+            }
+        }
+
+        &_method {
+            padding-left: 15px;
+
+            @include mobile {
+                padding-left: 5px;
+            }
+
+            a {
+                display: block;
+            }
+
+            &_phone {
+                font-size: 24px;
+                font-weight: bold;
+
+                @include mobile {
+                    font-size: 20px;
+                }
+            }
+
+            &_mail {
+                font-size: 16px;
+                text-decoration: underline;
+            }
+        }
+
+        &_icons {
+            @include flex(center,flex-start);
+            gap: 10px;
+
+            @include  desktop {
+                justify-content: center;
+            }
+
+            a {
+                width: 32px;
+                height: 32px;
+                border-radius: 3px;
+                border: 1px solid #000000;
+                @include flex(center,center);
+
+                @include mobile {
+                    width: 28px;
+                    height: 28px;
+                }
+            }
+        }
+    }
+
+    &_copyright {
+        padding: 12px 0;
+        text-align: center;
+        background-color:#ffffff;
+        border-top: $border;
+
+        p {
+            font-size: 13px;
+        }
+    }
+}

@@ -1,0 +1,426 @@
+.cart {
+    min-height: 50vh;
+    margin-bottom: 50px;
+
+    @include mobile {
+        margin-bottom: 25px;
+    }
+
+    &_container {
+        @include flex(flex-start, space-between);
+        gap: 30px;
+
+        @include smallScreen {
+            gap: 10px;
+        }
+
+        @include desktop {
+            flex-direction: column;
+        }
+    }
+
+    &_body {
+        background-color: #ffffff;
+        flex: 3;
+
+        @include desktop {
+            width: 100%;
+            flex:unset;
+        }
+
+        &_title {
+            font-size: 20px;
+            padding: 10px 15px;
+            border-bottom: $border;
+            
+            @include mobile {
+                padding: 10px 5px;
+                font-size: 18px;
+            }
+
+            @include smallMobile {
+                font-size: 16px;
+                padding: 5px;
+            }
+        }
+
+        &_content {
+            padding: 15px;
+
+            @include mobile {
+                padding: 5px;
+            }
+
+            &_empty {
+                font-size: 17px;
+
+                @include mobile {
+                    font-size: 15px;
+                }
+
+                @include smallMobile {
+                    font-size: 13px;
+                }
+            }
+        }
+
+        &_product {
+            &_text {
+                font-size: 16px;
+                color: $color-text-main;
+                margin-bottom: 15px;
+
+                @include mobile {
+                    font-size: 13px;
+                    margin-bottom: 10px;
+                }
+
+                span {
+                    font-weight: bold;
+                }
+            }
+
+            &_list {
+                border: 2px solid #e7e7e7;
+                border-radius: 8px;
+                padding: 8px 10px;
+                overflow: hidden;
+
+                @include tablet {
+                    padding: 5px 5px;
+                }
+
+                & > * ~ * {
+                    border-top: 1px solid #f1f0f0;
+                }
+            }
+
+            &_item {
+                padding: 15px 10px;
+                @include flex(flex-start, space-between);
+                position: relative;
+
+                @include tablet {
+                    padding: 5px 5px;
+                }
+
+                &_img > a > img {
+                    width: 80px;
+                    height: 80px;
+                    border: $border;
+                    object-fit: cover;
+
+                    @include  mobile {
+                        width: 60px;
+                        height: 60px;
+                    }
+                }
+
+                &_info {
+                    flex: 1;
+                    padding: 0 15px;
+
+                    @include mobile {
+                        padding: 0 5px 0 10px;
+                    }
+                }
+
+                &_name {
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: $color-text-main;
+                    display:-webkit-box;
+                    -webkit-line-clamp:1;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    word-break: break-word;
+
+                    @include tablet {
+                        font-size: 14px;
+                    }
+                }
+
+                &_size {
+                    font-size: 13px;
+                    color: #777777;
+                    padding-bottom: 8px;
+                    font-weight: 600;
+
+                    @include mobile {
+                        padding-bottom: 0;
+                    }
+                }
+
+                &_price {
+                    @include flex(center, flex-start);
+                    color: #8f9bb3;
+
+                    &_new {
+                        font-weight: bold;
+                        margin-right: 12px;
+                    }
+
+                    &_old {
+                        font-size: 13px;
+                        text-decoration: line-through;
+                    }
+                }
+
+                &_quantity {
+
+                    &_price {
+                        font-weight: bold;
+                        color: $color-text-main;
+                        padding-bottom: 10px;
+                    }
+
+                    &_change {
+                        @include flex(center,flex-start);
+
+                        button {
+                            border: $border;
+                            border-radius: 3px;
+                            width: 26px;
+                            height: 26px;
+                            @include flex(center, center);
+                            background-color:transparent;
+                            cursor: pointer;
+
+                            @include mobile {
+                                width: 22px;
+                                height: 20px;
+                                border-radius: 2px;
+                            }
+                        }
+
+                        p {
+                            font-weight: bold;
+                            height: 26px;
+                            width: 32px;
+                            @include flex(center, center);
+                            border: $border;
+                            margin: 0 3px;
+                            border-radius: 3px;
+
+                            @include mobile {
+                                height: 20px;
+                                width: 25px;
+                                font-size: 13px;
+                            }
+                        }
+                    }
+                }
+
+                &_delete {
+                    position: absolute;
+                    top: 5px;
+                    left: 0;
+                    color: $color-text-secondary;
+                    font-size: 8px;
+                    font-weight: 500;
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 100rem;
+                    @include flex(center, center);
+                    background: #8f9bb3;
+                    cursor: pointer;
+
+                    @include mobile {
+                        top: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    &_sitebar {
+        flex: 1.4;
+
+        @include desktop {
+            width: 100%;
+            flex:unset;
+        }
+
+        &_content {
+            background-color: #ffffff;
+            padding: 15px;
+
+            @include mobile {
+                padding: 5px;
+            }
+        }
+
+        &_title {
+            font-size: 20px;
+            padding-bottom: 5px;
+
+            @include mobile {
+                font-size: 18px;
+            }
+
+            @include smallMobile {
+                font-size: 16px;
+            }
+        }
+
+        &_total {
+            @include flex(center, space-between);
+            padding: 15px 0;
+            border-top: 1px dotted #dfe0e1;
+            border-bottom: 1px dotted #dfe0e1;
+
+            @include mobile {
+                padding: 10px 0;
+            }
+
+            &_text {
+                font-size: 16px;
+                font-weight: bold;
+                color: $color-text-main;
+
+                @include mobile {
+                    font-size: 14px;
+                }
+
+                @include smallMobile {
+                    font-size: 13px;
+                }
+            }
+
+            &_price {
+                font-size: 24px;
+                font-weight: bold;
+                color: #ff0000;
+
+                @include mobile {
+                    font-size: 20px;
+                }
+
+                @include smallMobile {
+                    font-size: 16px;
+                }
+            }
+        }
+
+        &_info {
+            margin: 10px 0;
+
+            &_item {
+                position: relative;
+                margin-bottom: 3px;
+
+                &_dot {
+                    width: 4px;
+                    height: 4px;
+                    border-radius: 100rem;
+                    background-color: #999999;
+                    position: absolute;
+                    top: 8px;
+                    left: 0;
+                }
+
+                &_text {
+                    padding-left: 10px;
+                    font-size: 14px;
+                    color: $color-text-main;
+
+                    @include mobile {
+                        font-size: 13px;
+                    }
+
+                    @include smallMobile {
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+
+        &_warning {
+            margin: 10px 0;
+            padding: 10px 15px;
+            font-size: 13px;
+            background-color: #fee3e8;
+            border: 1px solid #fdd0d8;
+            color: #d20909;
+            border-radius: 5px;
+
+            @include smallMobile {
+                font-size: 12px;
+                padding: 5px 10px;
+            }
+        }
+
+        &_btn {
+            width: 100%;
+            text-transform: uppercase;
+            padding: 10px 5px;
+            text-align: center;
+            font-size: 15px;
+            font-weight: bold;
+            border-radius: 4px;
+            margin-top: 12px;
+            pointer-events: none;
+            opacity: 0.7;
+            background: #151515;
+            color: $color-text-secondary;
+            display: block;
+
+            @include mobile {
+                font-size: 14px;
+            }
+
+            @include smallMobile {
+                font-size: 13px;
+                padding: 7px;
+            }
+
+            &.active  { 
+                background:$color-bg-red;
+                color: $color-text-secondary;
+                pointer-events: unset;
+                cursor: pointer;
+                opacity: 1;
+            }
+        }
+
+        &_policy {
+            padding: 12px 15px;
+            border-radius: 4px;
+            background-color: #d9edf7;
+            border: 1px solid #bce8f1;
+            margin-top: 15px;
+
+            @include smallMobile {
+                padding: 5px 10px;
+            }
+
+            &_title {
+                font-weight: bold;
+                font-size: 14px;
+                margin-bottom: 5px;
+                color: $color-text-main;
+
+                @include smallMobile {
+                    font-size: 13px;
+                }
+            }
+
+            &_desc {
+                color: $color-text-main;
+
+                @include mobile {
+                    font-size: 13px;
+                }
+
+                @include smallMobile {
+                    font-size: 12px;
+                }
+
+                span {
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}

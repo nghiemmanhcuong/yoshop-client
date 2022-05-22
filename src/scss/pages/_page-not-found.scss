@@ -1,0 +1,83 @@
+.page-not-found {
+    min-height: 50vh;
+    margin-top: 20px;
+    text-align: center;
+    margin-bottom: 50px;
+
+    &_title {
+        color: #000000;
+        margin: 0 0 13px 0;
+        font-weight: 700;
+        line-height: 1.2;
+        font-size: 32px;
+
+        @include desktop {
+            font-size: 27px;
+        }
+
+        @include mobile {
+            font-size: 22px;
+        }
+
+        span {
+            display: block;
+            color: #fff;
+            font-size: 170px;
+            font-weight: bold;
+            text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa,
+                0 6px 1px rgb(0 0 0 / 10%), 0 0 5px rgb(0 0 0 / 10%), 0 1px 3px rgb(0 0 0 / 30%),
+                0 3px 5px rgb(0 0 0 / 20%), 0 5px 10px rgb(0 0 0 / 25%),
+                0 10px 10px rgb(0 0 0 / 20%), 0 20px 20px rgb(0 0 0 / 15%);
+            line-height: 1.2;
+
+            @include desktop {
+                font-size: 100px;
+            }
+
+            @include mobile {
+                font-size: 80px;
+            }
+        }
+    }
+
+    &_desc {
+        font-size: 17px;
+        max-width: 520px;
+        margin: 0 auto 30px;
+        font-weight: 400;
+
+        @include desktop {
+            font-size: 15.5px;
+        }
+
+        @include mobile {
+            font-size: 14px;
+        }
+    }
+
+    &_btn {
+        a {
+            position: relative;
+            display: inline-block;
+            z-index: 1;
+            overflow: hidden;
+            padding: 12px 28px;
+            line-height: normal;
+            color: #fff;
+            background-color: #000000;
+            border: 1px solid #252a2b;
+            font-size: 13px;
+            font-weight: 500;
+            text-align: center;
+            letter-spacing: 1px;
+            outline: none;
+            border-radius: 2px;
+            text-transform: uppercase;
+
+            @include mobile {
+                font-size: 12px;
+                padding: 10px 20px;
+            }
+        }
+    }
+}

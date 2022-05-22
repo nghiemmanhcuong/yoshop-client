@@ -1,0 +1,35 @@
+.size-chart {
+    background-color: #ffffff;
+    padding: 20px;
+
+    @include tablet {
+        padding: 10px;
+    }
+
+    &_title {
+        font-size: 30px;
+        margin-bottom: 25px;
+
+        @include tablet {
+            margin-bottom: 10px;
+            font-size: 23px;
+        }
+
+        @include mobile {
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+
+        @include smallMobile {
+            font-size: 16px;
+        }
+    }
+
+    &_img {
+
+        &_item {
+            @include flex(center,center);
+            margin-bottom: 25px;
+        }
+    }
+}

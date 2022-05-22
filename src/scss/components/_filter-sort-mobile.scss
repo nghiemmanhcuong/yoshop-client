@@ -1,0 +1,189 @@
+.filter-sort-mobile {
+    position: fixed;
+    bottom: -100%;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffffff;
+    z-index: 1002;
+    transition: all 0.5s ease;
+    padding: 50px 15px 0;
+    overflow: scroll;
+    visibility: hidden;
+
+    &.show {
+        bottom:0;
+        visibility: visible;
+    }
+
+    &_title {
+        font-weight: bold;
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    &_header {
+        padding: 12px 0;
+        @include flex(center,space-between);
+        border-bottom:$border;
+
+        &_title {
+            @include flex(center,flex-start);
+
+            svg {
+                color: #909097;
+            }
+
+            span {
+                font-weight: bold;
+                font-size: 16px;
+                color: #000000;
+                display: block;
+                padding-left: 5px;
+            }
+        }
+    }
+
+    &_sort {
+        padding: 15px 0;
+        border-bottom:$border;
+
+        &_item ~ &_item {
+            margin-top: 5px;
+        }
+
+        &_item {
+            @include flex(center,flex-start);
+            font-size: 14px;
+
+            &_icon {
+                @include flex(center,center);
+                width: 18px;
+                height: 18px;
+                border: $border;
+                border-radius:3px;
+                margin-right: 10px;
+                background-color:#ffffff;
+
+                @include mobile {
+                    width: 15px;
+                    height: 15px;
+                }
+
+                &.active {
+                    background-color:#000000;
+                    color: #ffffff;
+                }
+            }
+        }
+    }
+
+    &_color {
+        padding: 15px 0;
+        border-bottom:$border;
+
+        @include mobile {
+            padding: 5px 0;
+        }
+
+        &_list {
+            @include flex(center,flex-start);
+            flex-wrap: wrap;
+            padding: 10px 0;
+
+            @include mobile {
+                padding: 0 0;
+            }
+        }
+
+        &_item {
+            width: 28px;
+            height: 28px;
+            border-radius: 100rem;
+            border: $border;
+            margin-right: 15px;
+            margin-bottom: 15px;
+            @include flex(center,center);
+            position: relative;
+
+            @include mobile {
+                margin-right: 10px;
+                margin-bottom: 5px;
+            }
+
+            svg {
+                color: #ffffff;
+            }
+
+            &.active::before {
+                content: '';
+                width: 32px;
+                height: 32px;
+                border: 1px solid #555555;
+                position:absolute;
+                top: -3px;
+                left: -3px;
+                border-radius: 100rem;
+            }
+        }
+    }
+
+    &_size {
+        padding: 15px 0;
+        border-bottom: $border;
+
+        &_item ~ &_item {
+            margin-top: 5px;
+        }
+
+        &_item {
+            @include flex(center,flex-start);
+
+            &_icon {
+                @include flex(center,center);
+                width: 18px;
+                height: 18px;
+                border: $border;
+                border-radius:3px;
+                margin-right: 10px;
+                background-color:#ffffff;
+
+                @include mobile {
+                    width: 15px;
+                    height: 15px;
+                }
+
+                &.active {
+                    background-color:#000000;
+                    color: #ffffff;
+                }
+            }
+        }
+    }
+
+    &_btn {
+        margin-top: 15px;
+
+        &_item {
+            padding: 10px 0;
+            font-weight: bold;
+            font-size: 13px;
+
+            @include mobile {
+                padding: 8px 0;
+            }
+
+            &:first-child{
+                color: #000000;
+                background-color: #f3f4f6;
+                border: 1px solid #e5e7eb;
+            }
+
+            &:last-child {
+                color: #ffffff;
+                background-color: $color-bg-primary;
+                border: 1px solid $color-bg-primary;
+            }
+        }
+    }
+}

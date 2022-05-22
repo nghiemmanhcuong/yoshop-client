@@ -1,0 +1,567 @@
+.products {
+    min-height: 50vh;
+    margin-bottom: 50px;
+
+    @include  desktop {
+        margin-bottom: 20px;
+    }
+
+    &_container {
+        @include flex(flex-start,space-between);
+        gap: 30px;
+
+        @include tablet {
+            flex-direction: column;
+        }
+
+        @include mobile {
+            gap: 10px;
+        }
+    }
+
+    &_images {
+        flex: 1.5;
+
+        @include tablet {
+            width: 100%;
+            flex: unset;
+        }
+
+        &_main {
+            border:$border;
+            height: 462px;
+            width: 100%;
+            object-fit: cover;  
+
+            @include tablet {
+                height: 600px;
+            }
+
+            @include mobile {
+                height: 370px;
+            }
+
+            @include smallMobile {
+                height: 250px;
+            }
+        }
+
+        &_list {
+            max-width: 100%;
+            margin-top: 10px;
+            @include flex(center,flex-start);
+            gap: 0 5px;
+            flex-wrap: wrap;
+
+            @include smallMobile {
+                margin-top: 5px;
+            }
+
+            &_item {
+                border:$border;
+                cursor: pointer;
+                
+                &:hover,
+                &.active {
+                    border: 1px solid #000;
+                }
+
+                img {
+                    min-width: 67px;
+                    height: 67px;
+                    object-fit: cover;
+
+                    @include mobile {
+                        min-width: 50px;
+                        height: 50px;
+                    }
+
+                    @include smallMobile {
+                        min-width: 40px;
+                        height: 40px;
+                    }
+                }
+            }
+        }
+    }
+
+    &_info {
+        flex: 2;
+        background-color:#ffffff;
+        padding: 15px 15px 25px;
+
+        @include mobile {
+            padding: 10px 5px 15px;
+        }
+
+        @include tablet {
+            width: 100%;
+            flex: unset;
+        }
+
+        &_name {
+            margin-bottom: 8px;
+            font-size: 24px;
+            color: $color-text-main;
+            font-weight: bold;
+
+            @include smallScreen {
+                font-size: 22px;
+                margin-bottom: 5px;
+            }
+
+            @include mobile {
+                font-size: 20px;
+            }
+
+            @include smallMobile {
+                font-size: 16px;
+            }
+        }
+
+        &_status {
+            font-size: 14px;
+            margin-bottom: 12px;
+
+            @include smallScreen {
+                font-size: 13px;
+            }
+
+            @include smallMobile {
+                margin-bottom: 5px;
+            }
+
+            span {
+                font-weight: 600;
+            }
+        }
+
+        &_price  {
+            @include flex(flex-end, flex-start);
+            margin-bottom: 22px;
+
+            @include smallScreen {
+                margin-bottom: 15px;
+            }
+
+            @include smallMobile {
+                margin-bottom: 5px;
+            }
+
+            &_old {
+                font-size: 18px;
+                color: #878c8f;
+                margin-right: 10px;
+                text-decoration: line-through;
+                font-weight: 600;
+
+                @include smallScreen {
+                    font-size: 16px;
+                }
+
+                @include smallMobile {
+                    font-size: 14px;
+                }
+            }
+
+            &_new {
+                font-size: 25px;
+                font-weight: bold;
+                color: #ff0000;
+                line-height:1.2;
+
+                @include smallScreen {
+                    font-size: 23px;
+                }
+
+                @include smallMobile {
+                    font-size: 18px;
+                }
+            }
+        }
+
+        &_size {
+            padding-bottom: 15px;
+            border-bottom: $border;
+
+            span {
+                font-size: 14px;
+                color: $color-text-main;
+                display: block;
+                padding-bottom: 2px;
+                font-weight: 600;
+            }
+
+            &_list {
+                @include flex(center,flex-start);
+                flex-wrap: wrap;
+                gap: 10px;
+
+                &_item {
+                    padding: 5px 10px;
+                    border-radius: 4px;
+                    border: 1px solid #252a2b;
+                    min-width: 70px;
+                    @include flex(center,center);
+                    font-weight: 600;
+                    position: relative;
+                    cursor: pointer;
+
+                    @include smallScreen {
+                        padding: 3px 5px;
+                        min-width: 60px;
+                        font-size: 13px;
+                    }
+
+                    @include smallMobile {
+                        min-width: 45px;
+                        font-size: 11px;
+                    }
+
+                    &.active > svg{
+                        display: block;
+                    }
+
+                    svg {
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        &_order {
+            padding-top: 15px;
+            @include flex(center, space-between);
+
+            @include mobile {
+                flex-direction: column;
+            }
+
+            &_quantity  {
+                margin-right: 15px;
+                @include flex(center, flex-start);
+
+                @include mobile {
+                    min-width: 100%;
+                    margin-right: 0;
+                }
+
+                &_btn {
+                    width: 45px;
+                    height: 45px;
+                    @include flex(center, center);
+                    background: #f3f4f4;
+                    border: solid 1px #f3f4f4;
+                    cursor: pointer;
+
+                    @include smallScreen {
+                        width: 40px;
+                        height: 40px;
+                    }
+
+                    @include mobile {
+                        width: 38px;
+                        height: 38px;
+                    }
+
+                    @include smallMobile {
+                        width: 30px;
+                        height: 30px;
+                    }
+                }
+
+                &_number {
+                    border-top: solid 1px #f3f4f4;
+                    border-bottom: solid 1px #f3f4f4;
+                    height: 45px;
+                    width: 60px;
+                    @include flex(center, center);
+                    font-size: 18px;
+                    font-weight: 600;
+
+                    @include smallScreen {
+                        height: 40px;
+                        width: 50px;
+                    }
+
+                    @include smallScreen {
+                        height: 38px;
+                        width: 45px;
+                    }
+
+                    @include smallMobile {
+                        height: 30px;
+                        width: 40px;
+                    }
+                }
+            }
+
+            &_buy {
+                flex: 1;
+
+                @include mobile {
+                    width: 100%;
+                    flex: unset;
+                    margin-top: 10px;
+                }
+
+                &_btn {
+                    width: 100%;
+                    height: 45px;
+                    color: #ffffff;
+                    background-color: $color-bg-red;
+                    font-size: 18px;
+                    font-weight: bold;
+                    cursor: pointer;
+
+                    @include smallScreen {
+                        height: 40px;
+                        font-size: 16px;
+                    }
+
+                    @include smallMobile {
+                        height: 30px;
+                        font-size: 13px;
+                    }
+
+                    &.disabled {
+                        background-color:#333333;
+                        pointer-events: none;
+                        opacity: 0.6;
+                    }
+                }
+            }
+        }
+
+        &_deliverly,
+        &_desc {
+            &_title {
+                font-size: 15px;
+                font-weight: bold;
+                padding: 25px 0 5px;
+
+                @include smallMobile {
+                    font-size: 13px;
+                    padding: 15px 0 5px;
+                }
+            }
+
+            &_content {
+                @include smallMobile {
+                    font-size: 13px;
+                }
+            }
+        }
+
+        &_deliverly {
+
+            &_list {
+                padding-top: 5px;
+
+                &_item {
+                    @include flex(center,flex-start);
+                    margin-bottom: 15px;
+
+                    &_icon {
+                        height: 20px;
+                        margin-right: 10px;
+
+                        @include smallMobile {
+                            height: 15px;
+                        }
+                    }
+
+                    &_text {
+                        font-size: 14px;
+                        color: $color-text-main;
+
+                        @include smallMobile {
+                            font-size: 13px;
+                        }
+
+                        span {
+                            font-weight: bold;
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &_comment,
+    &_related{
+        margin-top: 30px;
+
+        &_title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 30px;
+
+            @include tablet {
+                font-size: 26px;
+            }
+
+            @include mobile {
+                font-size: 22px;
+            }
+        }
+    }
+
+    &_comment {
+        background-color: #ffffff;
+        padding: 25px;
+        border-radius:10px;
+        margin-top: 30px;
+
+        @include tablet {
+            padding: 15px;
+        }
+
+        @include mobile {
+            padding: 10px;
+        }
+
+        &_title {
+            margin-bottom: 10px;
+        }
+
+        &_body_title {
+            font-size: 16px;
+        }
+
+        &_form {
+
+            &_not-user {
+                margin-bottom: 10px;
+                text-align: center;
+
+                @include mobile {
+                    font-size: 13px;
+                }
+
+                a {
+                    color: #0000ff;
+                    text-decoration: underline;
+                    display:inline-block;
+                    padding-left: 5px;
+                }
+            }
+
+            &_input {
+                box-shadow: 0 0 0 1px #d9d9d9;
+                -webkit-box-shadow: 0 0 0 1px #d9d9d9;
+                width: 100%;
+                padding: 12px;
+                border-radius: 4px;
+                margin: 7px 0;
+                transition: all 0.2s ease-out;
+                background-color: white;
+                color: #333333;
+                
+                @include mobile {
+                    font-size: 13px;
+                    padding: 10px;
+                    border: $border;
+                }
+    
+                &::placeholder{
+                    font-weight: 600;
+                    color: #777777;
+                }
+    
+                &:focus{
+                    box-shadow: 0 0 0 2px #338dbc;
+                    -webkit-box-shadow: 0 0 0 2px #338dbc;
+                    outline: none;  
+                }
+            }
+
+            &_btn {
+                @include flex(center, center);
+
+                button {
+                    display: inline-block;
+                    border-radius: 4px;
+                    font-weight: 500;
+                    padding: 8px 20px;
+                    box-sizing: border-box;
+                    text-align: center;
+                    cursor: pointer;
+                    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+                    position: relative;
+                    background: #338dbc;
+                    color: white;
+                    font-weight: bold;
+                    width: 300px;
+
+                    @include mobile {
+                        padding: 10px 20px;
+                        font-size: 13px;
+                        width: 100%;
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+        }
+
+        &_list_empty {
+            margin-top: 5px;
+            font-size: 16px;
+        }
+
+        &_item {
+            background-color: #eeeeee;
+            padding: 10px 15px;
+            margin-top: 5px;
+            border-radius: 4px;
+
+            @include mobile {
+                padding: 8px 10px;
+            }
+
+            &_info {
+                @include flex(center, flex-start);
+                margin-bottom: 5px;
+            }
+
+            &_name {
+                text-transform: capitalize;
+                font-weight: 500;
+            }
+
+            &_avatar {
+                width: 25px;
+                height: 25px;
+                border-radius: 100rem;
+                @include flex(center,center);
+                color: #ffffff;
+                font-weight: bold;
+                font-size: 18px;
+                line-height:1;
+                margin-right: 5px;
+                text-transform: uppercase;
+            }
+
+            &_title {
+                font-size: 14px;
+
+                @include mobile {
+                    font-size: 13px;
+                }
+            }
+
+            &_desc {
+                font-size: 13px;
+
+                @include mobile {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}

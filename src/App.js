@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Routers from './routers/Routers';
+import Header from './components/Header';
+import Navigation from './components/Navigation';
+import Footer from './components/Footer';
+import MobileMenu from './components/MobileMenu';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import {useLocation} from 'react-router-dom';
+
+const App = () => {
+    const location = useLocation();
+
+    return (
+        <div className='app'>
+            {location.pathname != '/checkouts' ? (
+                <>
+                    <Header />
+                    <Navigation />
+                    <MobileMenu />
+                    <Routers />
+                    <Footer />
+                </>
+            ) : (
+                <Routers />
+            )}
+        </div>
+    );
+};
 
 export default App;

@@ -1,0 +1,165 @@
+.contact {
+    min-height: 50vh;
+    margin-top: 20px;
+    margin-bottom: 50px;
+
+    &_header {
+        @include flex(center,center);
+        flex-direction: column;
+
+        @include tablet {
+            &_title {
+                font-size: 24px;
+            }
+        }
+
+        @include mobile {
+            &_title {
+                font-size: 21px;
+            }
+        }
+
+        &_hr {
+            width: 100px;
+            height: 4px;
+            background-color: #000000;
+            margin-top: 10px;
+        }
+    }
+
+    &_container {
+        margin-top: 30px;
+        @include flex(flex-start, space-between);
+        gap: 30px;
+
+        @include tablet {
+            flex-direction: column;
+        }
+    }
+
+    &_address {
+        flex: 1;
+
+        @include tablet {
+            flex: unset;
+            width: 100%;
+        }
+
+        &_item ~ &_item {
+            margin-top: 15px;
+        }
+
+        &_item {
+            border: $border;
+            padding: 15px;
+            @include flex(center,flex-start);
+            min-height: 95px;
+            background-color: #ffffff;
+
+            &_icon {
+                width: 45px;
+                height: 45px;
+                border-radius: 100rem;
+                background-color:#e7e7e7;
+                @include flex(center, center);
+                margin-right: 10px;
+            }
+
+            &_content {
+                flex: 1;
+
+                h5{
+                    font-size: 15px;
+                    font-weight: bold;
+                }
+    
+                p {
+                    font-size: 13px;
+                    color: $color-text-main;
+                }
+            }
+        }
+    }
+
+    &_form {
+        flex: 2;
+        background-color: #ffffff;
+        border:$border;
+        padding: 15px;
+
+        @include tablet {
+            flex: unset;
+            width: 100%;
+        }
+        
+        &_header {
+            margin-bottom: 15px;
+
+            h3 {
+                font-size: 18px;
+                font-weight: bold;
+            }
+            
+            p {
+                font-size: 13px;
+                color: $color-text-main;
+
+                @include mobile {
+                    font-size: 12px;
+                }
+            }
+        }
+        
+        &_group {
+            position: relative;
+            border:$border;
+            border-radius: 2px;
+            margin-bottom: 15px;
+
+            &.textarea{
+                .contact_form_group_icon {
+                    top: 20px;      
+                }
+            }
+
+            &_icon {
+                position: absolute;
+                top:50%;
+                left: 5px;
+                transform:translateY(-50%);
+                color: #999999;
+            }
+
+            &_input {
+                width: 100%;
+                padding: 10px 25px;
+
+                &::placeholder{
+                    color: #cccccc;
+                }
+            }
+        }
+
+        &_btn {
+            @include flex(center, center);
+            margin-top: 20px;
+            
+            button {
+                padding: 10px 45px;
+                background-color: $color-bg-main;
+                color: $color-text-secondary;
+                width: 35%;
+                font-weight: bold;
+                cursor: pointer;
+
+                @include tablet {
+                    width: 50%;
+                }
+
+                @include mobile {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

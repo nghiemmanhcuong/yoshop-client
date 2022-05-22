@@ -1,0 +1,23 @@
+.products-component {
+
+    &_button {
+        text-align: center;
+        font-weight: 500;
+        
+        a {
+            text-transform: initial;
+            margin-top: 15px;
+            padding: 10px 30px;
+            border-radius: 4px;
+            background: #ffffff;
+            color: var($shop-color-button);
+            border: 1px solid var($shop-color-button);
+            display: inline-block;
+
+            @include mobile {
+                padding: 7px 22px;
+                font-size: 13px;
+            }
+        }
+    }
+}

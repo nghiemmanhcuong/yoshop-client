@@ -1,0 +1,42 @@
+.navigation {
+    padding: 10px 0;
+    background-color: $nav-color-bg;
+
+    @include  desktop {
+        display: none;
+    }
+
+    &_container {
+        @include flex(center,space-between);
+    }
+
+    &_icon {
+        padding-right:30px;
+        padding-left: 2px;
+        font-size: 22px;
+    }
+
+    &_main {
+        flex: 1;
+    }
+
+    &_item {
+        text-align:center;
+    }
+
+    &_link {
+        padding: 10px;
+        background-color:#ffffff;
+        color: $color-text-main;
+        display: block;
+        border-radius: 5px;
+        font-weight: 600;
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+        &:hover,
+        &.active {
+            background-color:$color-bg-main;
+            color: $color-text-secondary;
+        }
+    }
+}

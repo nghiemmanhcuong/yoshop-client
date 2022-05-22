@@ -1,0 +1,361 @@
+.header {
+    z-index: 1000;
+    background-color: #ffffff;
+    padding: 10px 0;
+    height: 90px;
+
+    @include  desktop {
+        margin-bottom: 10px;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    }
+
+    @include tablet {
+        height: 70px;
+    }
+
+    @include mobile {
+        height: 50px;
+    }
+
+    &_wrapper {
+        background-color: #ffffff;
+
+        &.fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            padding: 10px 0;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+            animation: headerFrame 0.5s ease forwards;
+            z-index: 1000;
+        }
+    }
+
+    &_container {
+        @include flex(center, space-between);
+        position: relative;
+    }
+
+    &_left {
+        @include flex(center, flex-start);
+    }
+
+    &_menu {
+        text-align: center;
+        padding-right: 15px;
+        @include flex(center, center);
+        flex-direction: column;
+        cursor: pointer;
+
+        @include mobile {
+            padding-right: 5px;
+        }
+
+        &_icon {
+            font-size: 30px;
+            line-height: 0;
+
+            @include mobile {
+                font-size: 26px;
+            }
+        }
+
+        &_text {
+            @include mobile {
+                display: none;
+            }
+        }
+
+        span {
+            font-size: 10px;
+            font-weight: 600;
+        }
+    }
+
+    &_logo {
+        padding: 0 15px;
+
+        @include  mobile {
+            padding: 0 5px;
+        }
+
+        &_img {
+            max-height: 70px;
+
+            @include desktop {
+                max-height:50px;
+            }
+
+            @include mobile {
+                max-height:35px;
+            }
+        }
+    }
+
+    &_search {
+        width: 60%;
+        border: $border;
+        border-radius: 5px;
+        position: relative;
+        padding: 10px 25px 10px 5px;
+        display:block;
+
+        @include desktop {
+            display:none;
+        }
+
+        &_input {
+            height: 100%;
+            width: 100%;
+
+            &::placeholder {
+                font-weight: 600;
+            }
+        }
+
+        &_btn{
+            position: absolute;
+            right: 10px;
+            top: 48%;
+            transform: translateY(-50%);
+            font-size: 18px;
+            color: #c5cee0;
+            cursor: pointer;
+            background:transparent;
+        }
+    }
+
+    &_user {
+        @include flex(center, flex-end);
+
+        &_block {
+            margin-left: 25px;
+            position: relative;
+            cursor: pointer;
+
+            @include  desktop {
+                margin-left: 15px;
+
+                @include mobile {
+                    margin-left: 10px;
+                }
+            }
+
+            &.is_user{
+                padding-top: 12px;
+            }
+
+            &_item {
+                @include flex(center, flex-end);
+                flex-direction: column;
+                position: relative;
+
+                @include  desktop {
+                    span {
+                        display:none;
+                    }
+                }
+
+                svg {
+                    margin-bottom: 4px;
+
+                    @include mobile {
+                        width: 20px;
+                        height:20px;
+                    }
+                }
+            }
+
+            &_mobile-menu-open {
+                display: none;
+
+                @include desktop {
+                    display: block;
+                }
+                
+                & > i{
+                    font-size: 20px;
+
+                    @include mobile {
+                        font-size: 18px;
+                    }
+                }
+            }
+
+            &_icon {
+                font-size: 26px;
+
+                @include mobile {
+                    font-size: 22px;
+                }
+            }
+
+            &_text {
+                font-weight: 600;
+
+                &_name {
+                    @include flex(center, flex-start);
+
+                    svg {
+                        margin-top: 6px;
+                    }
+                }
+            }
+
+            &_num {
+                position: absolute;
+                background: #c50017;
+                color: #fff101;
+                font-size: 11px;
+                width: 16px;
+                height: 16px;
+                border-radius: 100rem;
+                @include flex(center,center);
+                top: 5px;
+                right: 10px;
+                font-weight: 600;
+            }
+        }
+
+        &_cart,
+        &_auth {
+            transition: all 0.5s ease;
+            visibility: hidden;
+            opacity: 0;
+            transform: scale(0);
+            position: relative;
+            z-index: 1000;
+
+            &.show{
+                visibility: visible;
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    }
+}
+
+.menu {
+    position: absolute;
+    width: 270px;
+    background-color: #ffffff;
+    box-shadow: 0 1px 5px 2px rgb(0 0 0 / 10%);
+    top: 116%;
+    left: -15px;
+    border-radius: 3px;
+    opacity: 0;
+    visibility: hidden;
+    transform:scale(0);
+    transition: all 0.4s ease;
+    z-index: 1000;
+
+    @include mobile {
+        left: -3px;
+        width: 100vw;
+    }
+
+    &.show {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1);
+    }
+
+    &_sub {
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        background-color: #ffffff;
+        border-top: $border;
+        border-left: $border;
+        top: -8px;
+        left: 20px;
+        transform: rotate(45deg);
+        border-radius: 2px;
+
+        @include mobile {
+            left: 8px;
+        }
+    }
+
+    &_icon {
+        border-bottom: $border;
+        padding: 8px 10px;
+    }
+
+    &_list {
+        padding: 10px 15px;
+
+        &_item {
+            &>a,&>div {
+                @include flex(center,space-between);
+                padding: 10px 0;
+                font-weight: bold;
+                text-transform: uppercase;
+                font-size: 14px;
+
+                svg {
+                    color: #999999;
+                }
+            }
+        }
+    }
+
+    &_help {
+        text-align: left;
+        padding: 5px 15px 25px;
+
+        &_title {
+            margin-bottom: 10px;
+        }
+
+        &_item {
+            padding: 3px 0;
+
+            a {
+                @include flex(center, flex-start);
+                gap: 10px;
+                font-weight: 500;
+                font-size: 15px;
+            }
+        }
+    }
+}
+
+.sub_menu {
+    padding-left: 10px;
+    height: 0;
+    overflow: hidden;
+
+    &.show {
+        height: max-content;
+        overflow:unset;
+    }
+
+    &_item {
+        text-align: left;
+        padding: 5px 0;
+        
+        a {
+            font-weight: 500;
+            text-transform:capitalize;
+
+            span {
+                font-weight: bold;
+                font-size: 15px;
+            }
+        }
+    }
+}
+
+@keyframes headerFrame {
+    from {
+        opacity: 0.5;
+        top: -10%;
+    }
+
+    to {
+        opacity: 1;
+        top: 0;
+    }
+}

@@ -1,0 +1,178 @@
+.auth {
+    position: absolute;
+    background-color: #ffffff;
+    width: 340px;
+    box-shadow: 0 1px 5px 2px rgb(0 0 0 / 10%);
+    border-radius: 3px;
+    padding: 20px;
+    left: -120px;
+    top: 15px;
+    height: max-content;
+    overflow: hidden;
+    z-index: 1000;
+
+    @include  desktop {
+        left: unset;
+        right: -54px;
+        top: 10px;
+    }
+
+    @include mobile {
+        width: 100vw;
+        right: -36px;
+        top: 8px;
+    }
+
+    &.is_user {
+        width: max-content;
+        left: -80px;
+        overflow:unset;
+
+        @include desktop {
+            left: -140px;
+        }
+
+        @include mobile {
+            width: 100vw;
+            left: unset;
+        }
+
+        &::after {
+            left: 105px;
+
+            @include mobile {
+                left: 279px;
+            }
+        }
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        background-color: #ffffff;
+        border-top: $border;
+        border-left: $border;
+        top: -8px;
+        left: 145px;
+        transform: rotate(45deg);
+        border-radius: 2px;
+    }
+
+    &_forgot,
+    &_login {
+        width: 100%;
+        transform: translateX(-100%);
+        transition: opacity 0.3s ease,transform 0.3s ease;
+        opacity: 0;
+        height: 0;
+
+        &.show {
+            transform: translateX(0);
+            opacity: 1;
+            height: max-content;
+        }
+    
+        &_header {
+            padding-bottom: 10px;
+            border-bottom: $border;
+            text-align: center;
+    
+            &_title {
+                font-weight: 500;
+                font-size: 18px;
+            }
+    
+            &_desc {
+                color: #677279;
+                font-size: 14px;
+            }
+        }
+    
+        &_form {
+            margin-top: 20px;
+    
+            &_input {
+                margin-bottom: 10px;
+    
+                input {
+                    border: 1px solid #d4d6d8;
+                    padding: 10px;
+                    width: 100%;
+                    box-shadow: 0 1px rgb(212 214 216 / 25%) inset;
+    
+                    &::placeholder {
+                        font-weight: bold;
+                        font-size: 12px;
+                    }
+                }
+            }
+    
+            &_security {
+                font-size: 13px;
+                color: #9e9e9e;
+                margin-bottom: 15px;
+    
+                a {
+                    color: #2962ff;
+                }
+            }
+    
+            &_btn {
+                width: 100%;
+                padding: 10px 0;
+                background-color: $color-bg-main;
+                color: $color-text-secondary;
+                font-weight: bold;
+                margin-bottom: 15px;
+                cursor: pointer;
+            }
+    
+            &_action {
+                font-size: 12px;
+    
+                &_item {
+                    color: #677279;
+                    font-weight: 500;
+
+                    a {
+                        color: #252a2b;
+                    }
+
+                    &_btn {
+                        color: $color-text-main;
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+    }
+
+    &_user {
+
+        &_title {
+            text-align: center;
+            padding-bottom: 5px;
+            border-bottom: $border;
+            font-size: 16px;
+        }
+
+        &_name {
+            font-weight: bold;
+            font-size: 16px;
+            margin-top: 5px;
+        }
+
+        &_item {
+            margin-top: 5px;
+            @include flex(center,flex-start);
+            font-size: 13px;
+
+            a {
+                @include flex(center,flex-start);
+            }
+        }
+    }
+    
+}

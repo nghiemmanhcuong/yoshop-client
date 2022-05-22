@@ -1,0 +1,41 @@
+.checkouts-success {
+    min-height: 40vh;
+    padding-top: 40px;
+    margin-bottom: 50px;
+
+    &_container {
+        @include flex(center,center);
+        flex-direction: column;
+
+        svg {
+            color:#008000;
+            margin-bottom: 5px;
+        }
+
+        h1 {
+            font-size: 32px;
+            color:#008000;
+        }
+
+        p {
+            max-width:600px;
+            margin:15px auto;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 500;
+            color: #000000;
+        }
+
+        a {
+            @include flex(center,center);
+            gap: 5px;
+            text-decoration: underline;
+            color: #0000ff;
+
+            svg {
+                margin-top: 3px;
+            }
+        }
+    }
+    
+}

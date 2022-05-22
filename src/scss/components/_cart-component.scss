@@ -1,0 +1,283 @@
+.cart-component {
+    position: absolute;
+    width: 420px;
+    padding: 20px;
+    background-color: #ffffff;
+    right: -10px;
+    top: 15px;
+    box-shadow: 0 1px 5px 2px rgb(0 0 0 / 10%);
+    border-radius: 3px;
+
+    @include  desktop {
+        right: -13px;
+    }
+
+    @include mobile {
+        width: 100vw;
+        right: -5px;
+        top: 10px;
+        padding: 10px;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        background-color: #ffffff;
+        border-top: $border;
+        border-left: $border;
+        top: -8px;
+        right: 30px;
+        transform: rotate(45deg);
+        border-radius: 2px;
+
+        @include  desktop {
+            right: 22px;
+        }
+
+        @include mobile {
+            right: 10px;
+        }
+    }
+
+    &_title {
+        text-align: center;
+        padding-bottom: 10px;
+        font-size: 18px;
+    }
+
+    &_body {
+        @include flex(center,center);
+        flex-direction: column;
+        border-top: $border;
+        border-bottom: $border;
+
+        &_text {
+            margin-top: 10px;
+            color: $color-text-main;
+            font-size: 15px;
+            padding-bottom: 20px;
+        }
+
+        & > svg {
+            margin-top: 20px;
+        }
+
+        &_product {
+            padding: 5px 0;
+            width: 100%;
+            max-height: 450px;
+            overflow-y: scroll;
+
+            &::-webkit-scrollbar {
+                width: 3px;
+            }
+
+            &::-webkit-scrollbar-track {
+                background: #ffffff;
+            }
+            
+            &::-webkit-scrollbar-thumb{
+                background: #ffffff;
+                border-radius: 10px;
+            }
+
+            &:hover::-webkit-scrollbar-thumb {
+                width: 3px;
+                background:#9ea0a2;
+            }
+            
+            &_item {
+                padding: 10px 0;
+                @include flex(flex-start,flex-start);
+                position: relative;
+                pointer-events: fill;
+
+                @include mobile {
+                    padding: 5px 0;
+                }
+
+                &_img > a > img {
+                    width: 85px;
+                    height: 85px;
+                    border: $border;
+                    object-fit: cover;
+
+                    @include  mobile {
+                        width: 50px;
+                        height: 50px;
+                    }
+                }
+
+                &_info {
+                    flex: 1;
+                    padding-left: 15px;
+
+                    @include mobile {
+                        padding-right: 35px;
+                        padding-left: 5px;
+                    }
+
+                    h5 {
+                        font-size: 14px;
+                        font-weight: bold;
+                        line-height:1;
+                        margin-bottom: 5px;
+                        color: $color-text-main;
+                        display:-webkit-box;
+                        -webkit-line-clamp:1;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        word-break: break-word;
+
+                        @include tablet {
+                            font-size: 12px;
+                        }
+
+                        @include mobile {
+                            margin-bottom: 0;
+                        }
+                    }
+
+                    p {
+                        font-size: 15px;
+                        color: #677279;
+                        padding-bottom: 10px;
+
+                        @include mobile {
+                            font-size: 12px;
+                            padding-bottom: 0;
+                        }
+                    }
+                }
+
+                &_order {
+                    @include flex(center,space-between);
+                }
+
+                &_quantity {
+                    @include flex(center,flex-start);
+
+                    button {
+                        width: 24px;
+                        height: 24px;
+                        border-radius: 100rem;
+                        background: rgba(37, 42, 43, 0.04);
+                        border: 1px solid rgba(37, 42, 43, 0.06);
+                        color: $color-text-main;
+                        cursor: pointer;
+                        @include flex(center, center);
+
+                        i {
+                            line-height:1;
+                            font-size: 18px;
+                            padding-bottom: 1px;
+                        }
+
+                        @include mobile {
+                            width: 18px;
+                            height: 18px;
+
+                            i {
+                                font-size: 14px;
+                            }
+                        }
+                    }
+
+                    &_number {
+                        font-size: 15px;
+                        font-weight: 600;
+                        height: 24px;
+                        width: 30px;
+                        color: #000000;
+                        text-align: center;
+
+                        @include mobile {
+                            width: 23px;
+                            font-size: 13px;
+                            height: 20px;
+                        }
+                    }
+                }
+
+                &_price {
+                    font-size: 14px;
+                    font-weight: bold;
+                    color: #000000;
+
+                    @include mobile {
+                        font-size: 13px;
+                    }
+                }
+
+                &_delete {
+                    position: absolute;
+                    top: 10px;
+                    right: 0;
+                    width: 25px;
+                    height: 25px;
+                    @include flex(center, center);
+                    background-color: #f4f6fb;
+                    color: $color-text-main;
+
+                    @include mobile {
+                        width: 20px;
+                        height: 20px;
+                        top: 5px;
+                    }
+                }
+
+            }
+
+            & > * ~ * {
+                border-top:1px dotted #e7e7e7;
+            }
+        }
+    }
+
+    &_footer {
+        &_total {
+            @include flex(center,space-between);
+            padding: 15px 0;
+
+            @include mobile {
+                padding: 10px 0;
+            }
+
+            &_text {
+                font-weight: 600;
+                font-size: 16px;
+
+                @include mobile {
+                    font-size: 14px;
+                }
+            }
+
+            &_price {
+                color: #ff0000;
+                font-weight: bold;
+                font-size: 16px;
+            }
+        }
+
+        &_button {
+            a {
+                display: block;
+                text-align: center;
+                width: 100%;
+                padding: 10px 0;
+                background-color:#ff0000;
+                font-weight: bold;
+                color: $color-text-secondary;
+                cursor: pointer;
+
+                @include mobile {
+                    padding: 7px;
+                    font-size: 13px;
+                }
+            }
+        }
+    }
+}

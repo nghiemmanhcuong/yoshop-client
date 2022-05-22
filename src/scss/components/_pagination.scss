@@ -1,0 +1,37 @@
+.pagination {
+    @include flex(center,center);
+    margin-top: 30px;
+
+    @include mobile {
+        margin-top: 15px;
+    }
+
+    &_list {
+        @include flex(center,center);
+
+        & > * ~ * {
+            margin-left: 10px;
+        }
+
+        &_item {
+            @include flex(center,center);
+            width: 30px;
+            height: 30px;
+            border: $border;
+            border-radius:2px;
+            cursor: pointer;
+            font-weight: 600;
+
+            &:hover,
+            &.active {
+                background-color: $color-bg-main;
+                color: $color-text-secondary;
+            }
+
+            &.disabled {
+                pointer-events: none;
+                opacity: 0.5;
+            }
+        }
+    }
+}

@@ -1,0 +1,55 @@
+.home {
+
+    &_endow {
+        padding: 10px 12px;
+        background-color: #ffffff;
+        margin-bottom: 30px;
+
+        &_title {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        &_item {
+            border: 1px solid #252a2b;
+            padding: 10px;
+            border-radius: 5px;
+            min-height: 111px;
+
+            &_title {
+                font-size: 17px;
+
+                @include mobile {
+                    font-size: 15px;
+                }
+            }
+
+            &_desc {
+                font-size: 13px;
+
+                @include mobile {
+                    font-size: 12px;
+                }
+            }
+
+            &_copy{
+                @include flex(center,flex-end);
+
+                &_btn {
+                    padding: 2px 10px 3px;
+                    font-weight: bold;
+                    font-size: 12px;
+                    border: 1px solid rgba(37, 42, 43, 0.08);
+                    color: $color-text-main;
+                    border-radius:25px;
+                    cursor: pointer;
+                    display: inline-block;
+
+                    &.disabled {
+                        pointer-events: none;
+                    }
+                }
+            }
+        }
+    }
+}

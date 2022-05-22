@@ -1,0 +1,106 @@
+.card {
+    background-color: #ffffff;
+    height: 350px;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+
+    @include tablet {
+        height: max-content;
+    }
+
+    &_img {
+        position: relative;
+        height: max-content;
+        height: 268px;
+        overflow: hidden;
+        background-color: #e7e7e7;
+
+        @include tablet {
+            height: 300px;
+        }
+
+        @include mobile {
+            height: 200px;
+        }
+
+        @include smallMobile {
+            height: 300px;
+        }
+
+        &:hover {
+            img {
+                &:nth-child(1) {
+                    opacity: 0;
+                }
+
+                &:nth-child(2) {
+                    opacity: 1;
+                }
+            }
+        }
+
+        img {
+            position: absolute;
+            inset: 0;
+            transition: all 0.3s ease-in-out;
+            object-fit: contain;
+
+            @include smallScreen {
+                min-height: 100%;
+                object-fit: cover;
+            }
+
+            &:nth-child(1) {
+                opacity: 1;
+            }
+
+            &:nth-child(2) {
+                opacity: 0;
+            }
+        }
+    }
+
+    &_info {
+        padding: 12px 10px 4px;
+        height: max-content;
+
+        &_name {
+            font-size: 14px;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: $color-text-main;
+            display:-webkit-box;
+            -webkit-line-clamp:1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            word-break: break-word;
+        }
+
+        &_price {
+            color:$color-text-main;
+
+            &_new {
+                font-size: 14px;
+                font-weight: bold;
+                padding-right: 5px;
+            }
+
+            &_old {
+                font-size: 13px;
+                text-decoration: line-through;
+            }
+        }
+    }
+
+    &_discount {
+        position:absolute;
+        top: 5px;
+        left: 5px;
+        color: #fff;
+        font-size: 12px;
+        font-weight: 500;
+        padding: 2px 5px;
+        background-color:$color-bg-red;
+    }
+}

@@ -1,0 +1,92 @@
+.page {
+    min-height:50vh;
+    margin-bottom: 50px;
+
+    &_container {
+        @include flex(flex-start, space-between);
+        gap: 30px;
+
+        @include smallScreen {
+            gap: 10px;
+        }
+
+        @include desktop {
+            flex-direction: column;
+        }
+    }
+
+    &_body {
+        flex: 3;
+
+        @include desktop {
+            width: 100%;
+            flex: unset;
+        }
+    }
+
+    &_sitebar {
+        flex: 1;
+
+        @include desktop {
+            width: 100%;
+            flex: unset;
+        }
+
+        &_container {
+            background-color: #ffffff;
+            padding: 15px;
+            margin-bottom: 15px;
+
+            @include mobile {
+                padding: 5px;
+                margin-bottom: 10px;
+            }
+        }
+
+        &_title {
+            font-size: 18px;
+            font-weight: bold;
+            padding-bottom: 10px;
+            border-bottom: $border;
+
+            @include mobile {
+                font-size: 16px;
+            }
+        }
+
+        &_img {
+            overflow: hidden;
+
+            &:hover > a > img {
+                transform: scale(1.1);
+            }
+
+            img {
+                transition: transform 0.8s ease;
+            }
+        }
+
+        &_list {
+            padding-top: 10px;
+
+            & > * ~ * {
+                border-top:1px dashed #e7e7e7;
+            }
+
+            &_item {
+                a {
+                    padding: 10px 0;
+                    display: block;
+                    font-weight: 600;
+                    font-size: 15px;
+
+                    @include mobile {
+                        font-size: 13px;
+                        padding: 5px 0;
+                    }
+                }
+
+            }
+        }
+    }
+}

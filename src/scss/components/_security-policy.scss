@@ -1,0 +1,36 @@
+.security-policy {
+    background-color: #ffffff;
+    padding: 15px 25px;
+
+    @include tablet {
+        padding: 10px 15px;
+    }
+
+    @include mobile {
+        padding: 5px 10px;
+    }
+
+    &_title {
+        margin-bottom: 15px;
+
+        @include tablet {
+            margin-bottom: 10px;
+            font-size: 23px;
+        }
+
+        @include mobile {
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+
+        @include smallMobile {
+            font-size: 16px;
+        }
+    }
+
+    &_desc {
+        @include tablet {
+            font-size: 13px;
+        }
+    }
+}

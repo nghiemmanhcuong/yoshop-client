@@ -1,0 +1,251 @@
+.account {
+    min-height: 50vh;
+    margin-top: 30px;
+    margin-bottom: 50px;
+
+    &_container {
+        width: 56%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        background-color: #ffffff;
+        padding: 25px 30px 30px;
+
+        @include desktop {
+            width: 70%;
+        }
+
+        @include tablet {
+            width: 100%;
+            padding: 15px 20px 20px;
+        }
+
+        @include mobile {
+            padding: 5px 10px 10px;
+        }
+    }
+
+    &_header {
+        margin-bottom: 20px;
+
+        @include mobile {
+            margin-bottom: 0;
+        }
+
+        &_title {
+            margin-bottom: 10px;
+            font-weight: bold;
+
+            @include tablet {
+                font-size: 24px;
+            }
+
+            @include mobile {
+                font-size: 22px;
+                margin-bottom: 5px;
+            }
+
+            @include smallMobile {
+                font-size: 18px;
+            }
+        }
+
+        &_hr {
+            width: 60px;
+            height: 4px;
+            background-color: $color-bg-main;
+            margin-left: auto;
+            margin-right: auto;
+
+            @include mobile {
+                height: 2px;
+            }
+        }
+    }
+
+    &_form {
+
+        &_success,
+        &_error {
+            border-radius: 5px;
+            padding: 12px 15px;
+            font-size: 13px;
+            margin: 5px 0 15px;
+            font-weight: bold;
+            position: relative;
+
+            &_icon {
+                position: absolute;
+                top: 5px;
+                right: 10px;
+                cursor: pointer;
+                width: 15px;
+                height: 15px;
+                border-radius: 100rem;
+                @include flex(center,center);
+                background-color:#856404;
+                color: #fff3cd;
+            }
+        }
+
+        &_error {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            color: #856404;
+        }
+
+        &_success {
+            color: #0f5132;
+            background-color: #d1e7dd;
+            border-color: #badbcc;
+        }
+
+        &_group {
+            margin: 25px 0;
+
+            @include mobile {
+                margin: 15px 0;
+            }
+            
+            &_input {
+                background-color:#ededed;
+                width: 100%;
+                padding: 5px 20px;
+                height: 55px;
+                border: 1px solid #ededed;
+
+                @include tablet {
+                    height: 50px;
+                }
+
+                @include mobile {
+                    height: 40px;
+                    padding: 5px 10px;
+                    font-size: 13px;
+                }
+
+                @include smallMobile {
+                    font-size: 12px;
+                    height: 35px;
+                }
+
+                &::placeholder{
+                    font-weight: 600;
+                }
+
+                &:focus{
+                    background-color: #ffffff;
+                }
+            }
+        }
+
+        &_sex {
+            @include flex(center,flex-start);
+
+            label {
+                display: block;
+                margin-right: 25px;
+                padding-left: 5px;
+                font-size: 15px;
+                font-weight: bold;
+
+                @include mobile {
+                    font-size: 14px;
+                }
+
+                @include smallMobile {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+
+    &_security {
+        text-align:left;
+        color: #9e9e9e;
+        font-weight: 600;
+
+        @include mobile {
+            font-size: 12px;
+        }
+
+        a {
+            color: #2962ff;
+            font-size: 13px;
+
+            @include mobile {
+                font-size: 12px;
+            }
+        }
+    }
+
+    &_button {
+        @include flex(center,center);
+        margin-top: 30px;
+
+        @include tablet {
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 0 40px;
+            height: 45px;
+            line-height: 45px;
+            background-color:$color-bg-main;
+            color: $color-text-secondary;
+            font-weight: bold;
+            cursor: pointer;
+
+            @include mobile {
+                height: 40px;
+                line-height: 40px;
+                font-size: 14px;
+            }
+
+            @include smallMobile {
+                height: 35px;
+                line-height: 35px;
+                font-size: 12px;
+                padding: 0 30px;
+            }
+        }
+    }
+
+    &_back{
+        margin-top: 15px;
+
+        @include smallMobile {
+            font-size: 13px;
+        }
+
+        @include mobile {
+            margin-top: 10px;
+        }
+
+        a {
+            @include flex(center,center);
+            gap: 10px;
+
+            @include smallMobile {
+                gap: 5px;
+
+                svg {
+                    height: 15px;
+                    width: 15px;
+                    padding-top: 2px;
+                }
+            }
+        }
+    }
+
+    &_other{
+        margin-top: 15px;
+
+        a {
+            display: block;
+            font-weight: bold;
+            color: $color-text-main;
+            padding-bottom: 5px;
+        }
+    }
+}

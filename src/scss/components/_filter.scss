@@ -1,0 +1,136 @@
+.filter {
+    margin-bottom: 10px;
+    @include flex(center, flex-start);
+
+    @include desktop {
+        display: none;
+    }
+
+    &_title {
+        @include flex(center, flex-start);
+        margin-right: 40px;
+        font-weight: bold;
+        font-size: 14px;
+
+        svg {
+            color: #909097;
+
+            @include tablet {
+                width: 18px;
+                height: 18px;
+            }
+        }
+
+        span {
+            display: block;
+            padding-left: 5px;
+        }
+    }
+
+    &_list {
+        @include flex(center, flex-start);
+        z-index: 999;
+
+        &_item {
+            width: 230px;
+            margin-right: 25px;
+            padding: 10px;
+            border: $border;
+            background-color: #ffffff;
+            position: relative;
+
+            &:hover {
+                .filter_list_item_body {
+                    visibility: visible;
+                    opacity: 1;
+                    top: 100%;
+                }
+
+                .filter_list_item_header > svg {
+                    transform:rotate(180deg);
+                }
+            }
+
+            &_header {
+                @include flex(center, space-between);
+                cursor: pointer;
+
+                span {
+                    font-size: 13px;
+                    font-weight: bold;
+                }
+
+                svg {
+                    transition: all 0.2s ease;
+                }
+            }
+
+            &_body {
+                position: absolute;
+                top: 110%;
+                left: -1px;
+                right: 0;
+                width: 100%;
+                border: $border;
+                background-color: #ffffff;
+                padding: 5px 15px;
+                width: 230px;
+                visibility: hidden;
+                opacity: 0;
+                transition: all 0.3s ease;
+
+                &_item {
+                    width: 28px;
+                    height: 28px;
+                    border: $border;
+                    border-radius:100%;
+                    cursor: pointer;
+                    @include flex(center, center);
+                    color: $color-text-secondary;
+                    position: relative;
+
+                    &::after{
+                        content: "";
+                        width: 34px;
+                        height: 34px;
+                        border: 1px solid #e7e7e7;
+                        border-radius: 100%;
+                        position: absolute;
+                        top: -4px;
+                        left: -4px;
+                        bottom: 0;
+                        right: 0;
+                        transform: scale(0);
+                    }
+
+                    &.checked::after{
+                        transform: scale(1);
+                    }
+                }
+
+                &_size {
+                    @include flex(center, flex-start);
+                    gap: 10px;
+                    cursor: pointer;
+                    font-size: 14px;
+                    margin-bottom: 5px;
+
+                    &_check {
+                        width: 16px;
+                        height: 16px;
+                        border: 1px solid #cedadd;
+                        border-radius: 2px;
+
+                        &.checked {
+                            background-color: $color-bg-main;
+
+                            svg {
+                                color: $color-text-secondary;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
